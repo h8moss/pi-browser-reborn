@@ -6,9 +6,13 @@ pub struct AppState {
 
 impl AppState 
 {
-  pub fn new()->AppState {
+  pub fn new()->Self {
     AppState {
       server: Option::None
     }
+  }
+
+  pub fn create_server(&mut self, workspace: String) {
+    self.server = Some(MediaServer::new(workspace));
   }
 }
