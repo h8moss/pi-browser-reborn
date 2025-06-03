@@ -42,7 +42,13 @@
     },
     "cli": {
       "description": "A powerful media database",
-      "args": []
+      "args": [
+        {
+          "name": "workspace",
+          "index": 1,
+          "takesValue": true
+        }
+      ]
     }
   }
 }
