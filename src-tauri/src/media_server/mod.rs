@@ -9,9 +9,9 @@ pub struct MediaServer {
 }
 
 impl MediaServer {
-  pub fn new()->MediaServer {
+  pub fn new(workspace: String)->MediaServer {
     MediaServer { 
-      workspace: String::from(""), 
+      workspace: workspace, 
       media: Vec::new(), 
       tag_index: HashMap::new() 
     }
