@@ -1,15 +1,28 @@
 mod media_item;
-use media_item::MediaItem;
-use std::collections::hash_map::HashMap;
+use std::path::PathBuf;
 
 pub struct MediaServer {
-  workspace: String,
+    workspace:  PathBuf,
 }
 
 impl MediaServer {
-  pub fn new(workspace: String)->MediaServer {
-    MediaServer { 
-      workspace: workspace, 
+    pub fn new(workspace: String) -> MediaServer {
+        let server = MediaServer {
+            workspace: PathBuf::from(workspace),
+        };
+        server.initialize();
+        server
     }
-  }
+
+    fn initialize(&self) {
+        let db_path = self.workspace.join(".pi/data.db");
+
+        match db_path.try_exists() {
+            Ok(true) => (), // Do nothing
+            _ => {
+                // Create the db
+                
+            }
+        }
+    }
 }
